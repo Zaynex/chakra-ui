@@ -373,6 +373,29 @@ possible placement values.
 </Popover>
 ```
 
+### Lazily mounting Popover
+
+By default, the `Popover` component renders popover content to the DOM, meaning that invisible popover contents are still rendered but are hidden by styles.
+
+If you want to defer rendering of popover content until that Popover is opened, you can use the `isLazy` prop. This is useful if your popover content require heavy performance, or make network calls on mount that should only happen when the component is displayed.
+
+```jsx
+<Popover isLazy>
+  <PopoverTrigger>
+    <Button>Click me</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverHeader fontWeight="semibold">Popover placement</PopoverHeader>
+    <PopoverArrow />
+    <PopoverCloseButton />
+    <PopoverBody>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore.
+    </PopoverBody>
+  </PopoverContent>
+</Popover>
+```
+
 ## Accessiblity
 
 > When you see the word _"trigger"_, it's referring to the `children` of
